@@ -83,7 +83,7 @@ func parseStatsLine(statsLine string) DeviceStats {
 	fields := strings.Fields(statsLine)
 	var stats DeviceStats
 
-	stats.DeviceName = strings.Replace(fields[index], ":", "", 1)
+	stats.DeviceName = strings.TrimSuffix(fields[index], ":")
 	index++
 
 	stats.RxStats = make([]uint64, 8, 8)
